@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Affordance-Guided Robotic Grasping via Multimodal Large Language Model Reasoning</title>
+  <meta name="description" content="Affordance-Guided Robotic Grasping via Multimodal Large Language Model Reasoning - Project Page" />
+  <meta property="og:title" content="Affordance-Guided Robotic Grasping" />
+  <meta property="og:description" content="Affordance-Guided Robotic Grasping via Multimodal Large Language Model Reasoning" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <span class="title">Affordance-Guided Robotic Grasping</span>
+        <span class="subtitle">via Multimodal Large Language Model Reasoning</span>
+      </div>
+      <nav class="nav">
+        <a href="#paper">Paper</a>
+        <a href="#abstract">摘要</a>
+        <a href="#method">方法</a>
+        <a href="#experiments">实验视频</a>
+        <a href="#comparisons">对比视频</a>
+        <a href="#bibtex">BibTeX</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="paper-title">
+        <span class="title-highlight">Affordance-Guided Robotic Grasping</span><br />
+        <span class="paper-subtitle">via Multimodal LLM Reasoning</span>
+      </h1>
+      <p class="authors">
+        作者：<span class="author">Jie Gao</span>，<span class="author">Dongyuan Zhen</span>，<span class="author">Zhou Zhao</span>
+      </p>
+      <p class="affiliations">单位：Central China Normal University</p>
+
+      <div class="cta">
+        <a class="btn primary" href="#" target="_blank">Paper PDF</a>
+        <a class="btn" href="#" target="_blank">arXiv</a>
+        <a class="btn" href="#" target="_blank">Code</a>
+        <!-- <a class="btn" href="#" target="_blank">Dataset</a> -->
+        <!-- <a class="btn" href="#experiments">Project Video</a> -->
+      </div>
+    </div>
+  </section>
+
+  <section id="abstract" class="card">
+    <div class="container">
+      <h2>Abstract</h2>
+      <p>
+        Robotic grasping is a core capability for embodied AI agents, but traditional methods focus solely on stable object holding and fail to account for object functional semantics—limiting their effectiveness in unstructured, human-centric scenarios. This gap highlights the need to integrate ``affordance" (object properties indicating usable interactions) into grasping systems. To address this, this paper proposes an MLLM-driven affordance-guided grasping framework. Unlike existing approaches that rely on large annotated datasets or additional memory modules, the framework leverages the inherent world knowledge and commonsense reasoning of multimodal large language models (MLLMs) to infer object affordances. It comprises three key modules: 1) an MLLM-based Affordance Reasoning Module that analyzes visual-language inputs to identify graspable and avoidable regions, generating structured outputs with confidence/risk scores and normalized coordinates; 2) a Segmentation with Affordance Guidance Module that converts MLLM-inferred affordance cues into binary masks, optimized via metrics for coverage, avoidance penalty, and core-point consistency; 3) a Grasp Strategy Generation Module that refines initial grasp candidates using affordance masks to output optimal grasp poses. Experiments are conducted on the real-world robotic platform. Results show the framework effectively identifies functional regions, validating its ability to enable task-driven, safe grasping. This work advances robotic adaptability in real-world contexts and provides a foundation for extending affordance-based manipulation to more complex scenarios.
+      </p>
+    </div>
+  </section>
+
+  <section id="method" class="card">
+    <div class="container">
+      <h2>方法流程</h2>
+      <div class="method-grid">
+        <img src="assets/img/Framework.png" alt="方法流程图占位" class="pipeline-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 我们的方法在各个场景下的实验 -->
+  <section id="experiments" class="card">
+    <!-- 简单单个物体抓取实验 -->
+    <div class="container">
+      <h2>简单场景</h2>
+      <div class="toolbar">
+        <button class="btn small" data-action="play-all">全部播放</button>
+        <button class="btn small" data-action="pause-all">全部暂停</button>
+      </div>
+      <div class="video-grid">
+        <figure class="video-item">
+          <video src="assets/videos/apple.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 1：抓取苹果</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/banana.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 2：抓取香蕉</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/bottle.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 3：抓取瓶子</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/pot1.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 4：抓取锅</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/pot2.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 5：抓取锅</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/pot3.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 6：抓取锅</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/screwdriver.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 7：抓取螺丝刀</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/stapler.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 8：抓取订书机</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/marker.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>实验演示 9：抓取记号笔</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    </br>
+
+    <!-- 多物体场景抓取实验 -->
+    <div class="container">
+      <h2>多物体场景</h2>
+      <div class="video-grid">
+        <figure class="video-item">
+          <video src="assets/videos/ours-scene4.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>场景1</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/ours-scene6.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>场景2</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/ours-scene5.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>场景3</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/ours-scene3.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>场景4</figcaption>
+        </figure>
+        <figure class="video-item">
+          <video src="assets/videos/ours-scene2-.mp4" controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>场景5</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 新增：LLM 主干单视频对比切换 -->
+  <section id="llm-backbones" class="card">
+    <div class="container">
+      <h2>MLLM 主干对比</h2>
+      <p class="muted">在相同场景下对比不同 MLLM 主干的抓取表现。</p>
+  
+      <div class="llm-switcher">
+        <div class="switcher-buttons" role="tablist" aria-label="LLM Backbones">
+          <button class="btn toggle active" data-src="assets/videos/doubao-scene1.mp4" aria-selected="true">Doubao</button>
+          <button class="btn toggle" data-src="assets/videos/qwen-scene1.mp4">Qwen</button>
+          <button class="btn toggle" data-src="assets/videos/kimi-scene1.mp4">Kimi</button>
+        </div>
+  
+        <div class="player">
+          <video id="llm-backbone-player"
+                 src="assets/videos/doubao-scene1.mp4"
+                 controls preload="metadata" autoplay muted playsinline loop></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 对比实验 -->
+  <section id="comparisons" class="card">
+    <div class="container">
+      <h2>对比实验</h2>
+      <div class="comparison-list">
+        <div class="comparison-pair">
+          <div class="comparison-header">
+            <span>我们的方法</span>
+            <button class="btn xsmall" data-action="play-both">同时播放</button>
+            <button class="btn xsmall" data-action="pause-both">同时暂停</button>
+            <span>基线方法</span>
+          </div>
+          <div class="pair-grid">
+            <figure>
+              <video src="assets/videos/ours-scene2.mp4" controls autoplay muted playsinline loop preload="metadata"></video>
+              <figcaption>Case 1 - Ours</figcaption>
+            </figure>
+            <figure>
+              <video src="assets/videos/llm-scene2.mp4" controls autoplay muted playsinline loop preload="metadata"></video>
+              <figcaption>Case 1 - Zero-Shot-LLM</figcaption>
+            </figure>
+            <figure>
+              <video src="assets/videos/crog-scene2.mp4" controls autoplay muted playsinline loop preload="metadata"></video>
+              <figcaption>Case 1 - Crog-Backbone </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="comparison-pair">
+          <div class="comparison-header">
+            <span>我们的方式</span>
+            <button class="btn xsmall" data-action="play-both">同时播放</button>
+            <button class="btn xsmall" data-action="pause-both">同时暂停</button>
+            <span>基线方法</span>
+          </div>
+          <div class="pair-grid">
+            <figure>
+              <video src="assets/videos/ours_case2.mp4" controls preload="metadata"></video>
+              <figcaption>Case 2 - Ours</figcaption>
+            </figure>
+            <figure>
+              <video src="assets/videos/baseline_case2.mp4" controls preload="metadata"></video>
+              <figcaption>Case 2 - Baseline</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="comparison-pair">
+          <div class="comparison-header">
+            <span>我们的方式</span>
+            <button class="btn xsmall" data-action="play-both">同时播放</button>
+            <button class="btn xsmall" data-action="pause-both">同时暂停</button>
+            <span>基线方法</span>
+          </div>
+          <div class="pair-grid">
+            <figure>
+              <video src="assets/videos/ours_case3.mp4" controls preload="metadata"></video>
+              <figcaption>Case 3 - Ours</figcaption>
+            </figure>
+            <figure>
+              <video src="assets/videos/baseline_case3.mp4" controls preload="metadata"></video>
+              <figcaption>Case 3 - Baseline</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="comparison-pair">
+          <div class="comparison-header">
+            <span>我们的方式</span>
+            <button class="btn xsmall" data-action="play-both">同时播放</button>
+            <button class="btn xsmall" data-action="pause-both">同时暂停</button>
+            <span>基线方法</span>
+          </div>
+          <div class="pair-grid">
+            <figure>
+              <video src="assets/videos/ours_case4.mp4" controls preload="metadata"></video>
+              <figcaption>Case 4 - Ours</figcaption>
+            </figure>
+            <figure>
+              <video src="assets/videos/baseline_case4.mp4" controls preload="metadata"></video>
+              <figcaption>Case 4 - Baseline</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bibtex" class="card">
+    <div class="container">
+      <h2>BibTeX 引用</h2>
+      <pre class="bibtex"><code>@article{ARGM2024,
+  title   = {Affordance-Guided Robotic Grasping via Multimodal Large Language Model Reasoning},
+  author  = {Jie Gao and Dongyuan Zhen and Zhou Zhao},
+  journal = {预印本或会议名称},
+  year    = {2024},
+  institution = {Central China Normal University},
+  url     = {https://你的项目页或arxiv链接}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 你的姓名 / 团队名称 · 项目页托管于 GitHub Pages</p>
+      <p class="small">如需技术支持或合作，请联系：your_email@example.com</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
