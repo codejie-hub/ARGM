@@ -219,43 +219,41 @@
           </div>
         </div>
 
-        <div class="comparison-pair">
-          <div class="comparison-header">
-            <span>我们的方式</span>
-            <button class="btn xsmall" data-action="play-both">同时播放</button>
-            <button class="btn xsmall" data-action="pause-both">同时暂停</button>
-            <span>基线方法</span>
-          </div>
-          <div class="pair-grid">
-            <figure>
-              <video src="assets/videos/ours_case3.mp4" controls preload="metadata"></video>
-              <figcaption>Case 3 - Ours</figcaption>
-            </figure>
-            <figure>
-              <video src="assets/videos/baseline_case3.mp4" controls preload="metadata"></video>
-              <figcaption>Case 3 - Baseline</figcaption>
-            </figure>
-          </div>
-        </div>
 
-        <div class="comparison-pair">
-          <div class="comparison-header">
-            <span>我们的方式</span>
-            <button class="btn xsmall" data-action="play-both">同时播放</button>
-            <button class="btn xsmall" data-action="pause-both">同时暂停</button>
-            <span>基线方法</span>
-          </div>
-          <div class="pair-grid">
-            <figure>
-              <video src="assets/videos/ours_case4.mp4" controls preload="metadata"></video>
-              <figcaption>Case 4 - Ours</figcaption>
-            </figure>
-            <figure>
-              <video src="assets/videos/baseline_case4.mp4" controls preload="metadata"></video>
-              <figcaption>Case 4 - Baseline</figcaption>
-            </figure>
-          </div>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ablation" class="card">
+    <div class="container">
+      <h2>消融实验</h2>
+      <p class="muted">
+        对比不同组件的影响：完整模块、去除 MLLM 推理 affordance、去除 affordance 推理与分割引导。
+      </p>
+
+      <div class="toolbar">
+        <button class="btn small" data-action="play-ablation">本段全部播放</button>
+        <button class="btn small" data-action="pause-ablation">本段全部暂停</button>
+      </div>
+
+      <div class="ablation-grid">
+        <figure class="video-item">
+          <video src="https://codejie.oss-cn-shanghai.aliyuncs.com/ablation/full.mp4"
+                 controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>完整模块（Full Model）</figcaption>
+        </figure>
+
+        <figure class="video-item">
+          <video src="https://codejie.oss-cn-shanghai.aliyuncs.com/ablation/wo-llm.mp4"
+                 controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>去除 MLLM 推理 affordance（w/o Affordance Reasoning）</figcaption>
+        </figure>
+
+        <figure class="video-item">
+          <video src="https://codejie.oss-cn-shanghai.aliyuncs.com/ablation/wo-llm-seg.mp4"
+                 controls preload="metadata" autoplay muted playsinline loop></video>
+          <figcaption>去除 Affordance 推理 + 分割引导（w/o Affordance + Seg. Guidance）</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -276,8 +274,8 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2024 你的姓名 / 团队名称 · 项目页托管于 GitHub Pages</p>
-      <p class="small">如需技术支持或合作，请联系：your_email@example.com</p>
+      <p>&copy; 2024 CodeJie / CCNU-Robot-Lab · 项目页托管于 GitHub Pages</p>
+      <p class="small">code_jie@163.com</p>
     </div>
   </footer>
 
